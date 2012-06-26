@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Adapter for product feeds",
     "keywords": ["seo","seomoz"],
-    "homepage": "http://github.com/jongotlin/product-feed-adapter",
+    "homepage": "http://github.com/jongotlin/ProductFeedAdapter",
     "license": "MIT",
     "authors": [
         {
