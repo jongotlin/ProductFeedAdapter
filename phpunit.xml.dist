@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="bootstrap.php" colors="true">
+<phpunit bootstrap="tests/bootstrap.php" colors="true">
     <testsuites>
         <testsuite name="Product Feed Adapter Test Suite">
-            <directory suffix="Test.php">./ProductFeedAdapter/Test/</directory>
+            <directory suffix="Test.php">./tests/ProductFeedAdapter/Test/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
