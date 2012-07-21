@@ -30,6 +30,11 @@ class Product
 
     public function getDescription()
     {
+        return html_entity_decode($this->description);
+    }
+
+    public function getRawDescription()
+    {
         return $this->description;
     }
 
