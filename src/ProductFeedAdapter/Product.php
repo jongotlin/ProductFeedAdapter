@@ -20,6 +20,11 @@ class Product
 
     public function getName()
     {
+        return html_entity_decode($this->name);
+    }
+
+    public function getRawName()
+    {
         return $this->name;
     }
 

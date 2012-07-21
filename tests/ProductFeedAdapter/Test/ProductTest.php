@@ -8,7 +8,7 @@ use ProductFeedAdapter\Product;
 class ProductTest extends \PHPUnit_Framework_TestCase
 {
 
-    public function testProductWithEncodedHtmlIsDisplayedCorrect()
+    public function testProductWithHtmlEncodedDescriptionIsDisplayedCorrect()
     {
         $product = new Product();
         $product->setDescription('&lt;p&gt;Härlig retrotröja föreställande Atari-loggan i grön matrixstyle binärkod.&lt;/p&gt;
@@ -50,11 +50,25 @@ class ProductTest extends \PHPUnit_Framework_TestCase
         $this->assertStringStartsWith('&lt;p&gt;Härlig retrotröja föreställande Atari-loggan i grön matrixstyle binärkod.&lt;/p&gt;', $product->getRawDescription());
     }
 
-    public function testProductWithHtmlIsDisplayedCorrect()
+    public function testProductWithHtmlDescriptionIsDisplayedCorrect()
     {
         $product = new Product();
         $product->setDescription('<p>Härlig retrotröja föreställande Atari-loggan i grön...</p>'); 
         $this->assertEquals('<p>Härlig retrotröja föreställande Atari-loggan i grön...</p>', $product->getDescription());
+    }
+
+    public function testProductWithHtmlEncodedNameIsDisplayedCorrect()
+    {
+        $product = new Product();
+        $product->setName('Alien &amp; Predator Total Destruction Box DVD');
+        $this->assertEquals('Alien & Predator Total Destruction Box DVD', $product->getName());
+    }
+
+    public function testProductWithHtmlNameIsDisplayedCorrect()
+    {
+        $product = new Product();
+        $product->setDescription('Alien & Predator Total Destruction Box DVD'); 
+        $this->assertEquals('Alien & Predator Total Destruction Box DVD', $product->getDescription());
     }
 
 }
