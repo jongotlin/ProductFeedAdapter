@@ -21,6 +21,8 @@ class NetworkFactory
             return new AdTraction($feed);
         } else if (false !== strpos($feed, 'zanox')) {
             return new Zanox($feed);
+        } else if (false !== strpos($feed, 'adsettings')) {
+            return new Adsettings($feed);
         }
 
         throw new NetworkNotFoundException();

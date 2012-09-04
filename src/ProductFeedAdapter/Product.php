@@ -15,7 +15,7 @@ class Product
 
     public function setName($name)
     {
-        $this->name = (string)$name;
+        $this->name = trim((string)$name);
     }
 
     public function getName()
@@ -30,7 +30,7 @@ class Product
 
     public function setDescription($description)
     {
-        $this->description = (string)$description;
+        $this->description = trim((string)$description);
     }
 
     public function getDescription()
