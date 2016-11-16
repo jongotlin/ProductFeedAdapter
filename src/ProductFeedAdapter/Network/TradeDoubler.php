@@ -13,12 +13,16 @@ class TradeDoubler extends Network
     {
         $products = new \ArrayIterator();
 
-        // Tidy is needed since TradeDoubler sends invalid xml(!)
-        $tidy = new \tidy();
-        $config = array('wrap' => 0, 'input-xml' => true, 'output-xml' => true );
-        $cleanXML = $tidy->repairString($this->feed, $config, 'utf8');
+        // TradeDoubler might send invalid xml. Use Tidy if exist to fix it.
+        if (class_exists('\tidy')) {
+            $tidy = new \tidy();
+            $config = array('wrap' => 0, 'input-xml' => true, 'output-xml' => true);
+            $xml = $tidy->repairString($this->feed, $config, 'utf8');
+        } else {
+            $xml = $this->feed;
+        }
 
-        $dom = new \SimpleXMLElement($cleanXML);
+        $dom = new \SimpleXMLElement($xml);
 
         $i = 0;
         foreach ($dom->product as $feedProduct) {
